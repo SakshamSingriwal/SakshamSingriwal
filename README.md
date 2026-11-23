@@ -48,7 +48,7 @@ Deploy, train, measure and iterate with the customer. Own the outcome, not the t
 A drug-safety (pharmacovigilance) platform for pharmaceutical companies and contract research organisations. Multi-tenant and serverless on AWS, designed for audit trails, electronic signatures and regulatory inspection. Each product can be used alone or together with the others.
 
 <table>
-<tr><th align="left" width="24%">Product<br><img src="assets/spacer.svg" width="130" height="1" alt=""></th><th align="left" width="40%">The customer's problem it solves<br><img src="assets/spacer.svg" width="250" height="1" alt=""></th><th align="left">My part<br><img src="assets/spacer.svg" width="230" height="1" alt=""></th></tr>
+<tr><th align="left" width="24%">Product&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th><th align="left" width="40%">The&nbsp;customer's&nbsp;problem&nbsp;it&nbsp;solves</th><th align="left">My&nbsp;part&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th></tr>
 <tr>
 <td valign="top"><b>Case Intake</b></td>
 <td valign="top">Safety reports arrive as forms, e-mails and PDFs. This turns them into coded, reviewed and signed cases in the standard format regulators accept.</td>
@@ -90,7 +90,7 @@ A drug-safety (pharmacovigilance) platform for pharmaceutical companies and cont
 ## Client delivery
 
 <table>
-<tr><th align="left" width="24%">Project<br><img src="assets/spacer.svg" width="130" height="1" alt=""></th><th align="left" width="40%">The customer's problem it solves<br><img src="assets/spacer.svg" width="250" height="1" alt=""></th><th align="left">My part<br><img src="assets/spacer.svg" width="230" height="1" alt=""></th></tr>
+<tr><th align="left" width="24%">Project&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th><th align="left" width="40%">The&nbsp;customer's&nbsp;problem&nbsp;it&nbsp;solves</th><th align="left">My&nbsp;part&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th></tr>
 <tr>
 <td valign="top"><b>Booking and CRM platform</b><br><sub>Home-services company, Melbourne</sub></td>
 <td valign="top">One system for the public website, online booking, quotes, job scheduling, reminders and customer records, replacing scattered tools.</td>
