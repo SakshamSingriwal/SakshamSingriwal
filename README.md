@@ -43,6 +43,72 @@ Deploy, train, measure and iterate with the customer. Own the outcome, not the t
 
 <br>
 
+## Enterprise software · NOVIXO Safety
+
+A drug-safety (pharmacovigilance) platform for pharmaceutical companies and contract research organisations. Multi-tenant and serverless on AWS, designed for audit trails, electronic signatures and regulatory inspection. Each product can be used alone or together with the others.
+
+<table>
+<tr><th align="left" width="24%">Product</th><th align="left" width="40%">The customer's problem it solves</th><th align="left">My part</th></tr>
+<tr>
+<td valign="top"><b>Case Intake</b></td>
+<td valign="top">Safety reports arrive as forms, e-mails and PDFs. This turns them into coded, reviewed and signed cases in the standard format regulators accept.</td>
+<td valign="top">Release hardening, defect fixes, continuous integration and end-to-end validation of the multi-tenant platform, working with the founding engineer.</td>
+</tr>
+<tr>
+<td valign="top"><b>Literature Monitoring</b></td>
+<td valign="top">Companies must search medical journals every week for side effects of their products. This runs the searches, screens the articles and records every decision.</td>
+<td valign="top">Led the engineering of literature acquisition and screening, and its integration into the platform.</td>
+</tr>
+<tr>
+<td valign="top"><b>Quality Control</b></td>
+<td valign="top">Checks the work done on each case independently, shows which step caused each error, and reports error rates and timeliness.</td>
+<td valign="top">Independent end-to-end validation across the user roles, and the design of its link to case intake.</td>
+</tr>
+<tr>
+<td valign="top"><b>Aggregate Reporting</b></td>
+<td valign="top">Builds the periodic safety reports regulators require (PBRER/PSUR, PADER, DSUR) from frozen data, with every number traceable to its cases.</td>
+<td valign="top">Leading the design and build of one configurable reporting engine for all three report types. <i>In development.</i></td>
+</tr>
+<tr>
+<td valign="top"><b>Submissions and Acknowledgements</b></td>
+<td valign="top">Sends each case to the right authority on time, tracks the answer and handles rejections.</td>
+<td valign="top">Designing the versioned data contract that will connect it to reporting. <i>On the roadmap.</i></td>
+</tr>
+<tr>
+<td valign="top"><b>Signal Detection and Management</b></td>
+<td valign="top">Looks across all cases and articles for a new or changed risk, and follows it to a decision.</td>
+<td valign="top">Designing the versioned data contract for its signal summaries. <i>On the roadmap.</i></td>
+</tr>
+</table>
+
+`Python` `AWS Lambda` `DynamoDB` `S3` `Cognito` `Bedrock` `AWS CDK` `React` `TypeScript` `E2B(R3)` `multi-tenant isolation` `audit trails and e-signatures`
+
+<sub>Proprietary work of NOVIXO AI. The code is private.</sub>
+
+<br>
+
+## Client delivery
+
+<table>
+<tr><th align="left" width="24%">Project</th><th align="left" width="40%">The customer's problem it solves</th><th align="left">My part</th></tr>
+<tr>
+<td valign="top"><b>Booking and CRM platform</b><br><sub>Home-services company, Melbourne</sub></td>
+<td valign="top">One system for the public website, online booking, quotes, job scheduling, reminders and customer records, replacing scattered tools.</td>
+<td valign="top">Platform, data model, API and staff application, delivered with a colleague who led the visual front end.</td>
+</tr>
+<tr>
+<td valign="top"><b>Relationship CRM and website</b><br><sub>Events and media business</sub></td>
+<td valign="top">Turns a founder's network into structured memory, following each contact from relationship to enquiry, deal, client and referral.</td>
+<td valign="top">Sole engineer, from requirements and design research to release.</td>
+</tr>
+</table>
+
+`Next.js` `TypeScript` `Hono` `PostgreSQL` `Tailwind` `Vercel` `Vitest` `Playwright`
+
+<sub>Client work. The code is private.</sub>
+
+<br>
+
 ## A product from my own business
 
 **Gaming café ERP.** I ran the cafés this was built for, so the requirements came from the floor: one session and billing engine for every table and console, a live floor view, customers and memberships, a wallet, bookings without clashes, a food and beverage counter, and separate apps for the owner and for customers.
@@ -78,7 +144,7 @@ Earlier projects from my data science and machine learning work, all public.
 </tr>
 <tr>
 <td valign="top"><b>Associate Data Scientist</b><br><sub>NOVIXO AI</sub></td>
-<td valign="top">Data science, machine learning and natural language processing applied to pharmacovigilance, the monitoring of medicine safety.</td>
+<td valign="top">Data science, machine learning and natural language processing for pharmacovigilance: screening medical literature, removing duplicate articles, and finding the products and adverse events named in medical text.</td>
 </tr>
 <tr>
 <td valign="top"><b>Data science training and projects</b><br><sub>2025 to 2026</sub></td>
