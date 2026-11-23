@@ -132,38 +132,47 @@ Earlier projects from my data science and machine learning work, all public.
 
 <br>
 
-## Experience
+## Career timeline
 
 <sub>ENTREPRENEURSHIP &nbsp;→&nbsp; DATA SCIENCE &nbsp;→&nbsp; ASSOCIATE DATA SCIENTIST &nbsp;→&nbsp; FORWARD DEPLOYED ENGINEER &nbsp;→&nbsp; ENTERPRISE SOLUTION DELIVERY</sub>
 
 <table>
-<tr><th align="left" width="30%">Role</th><th align="left">What I do, or did</th></tr>
+<tr><th align="left" width="17%">When</th><th align="left">Role or qualification</th></tr>
 <tr>
-<td valign="top"><b>Forward Deployed Engineer</b><br><sub>NOVIXO AI · present</sub></td>
-<td valign="top">Take enterprise software from a customer's requirement to working delivery: solution design, cloud and integration work, validation with the people who will use it, and the documents a regulated buyer asks for.</td>
+<td valign="top"><code>2026&nbsp;–&nbsp;now</code></td>
+<td valign="top"><b>Forward Deployed Engineer</b><br><sub>NOVIXO AI</sub><br>Take enterprise software from a customer's requirement to working delivery: solution design, cloud and integration work, validation with the people who will use it, and the documents a regulated buyer asks for.</td>
 </tr>
 <tr>
-<td valign="top"><b>Associate Data Scientist</b><br><sub>NOVIXO AI</sub></td>
-<td valign="top">Data science, machine learning and natural language processing for pharmacovigilance: screening medical literature, removing duplicate articles, and finding the products and adverse events named in medical text.</td>
+<td valign="top"><code>2026</code></td>
+<td valign="top"><b>Associate Data Scientist</b><br><sub>NOVIXO AI</sub><br>Data science, machine learning and natural language processing applied to pharmacovigilance, the monitoring of medicine safety.</td>
 </tr>
 <tr>
-<td valign="top"><b>Data science training and projects</b><br><sub>2025 to 2026</sub></td>
-<td valign="top">Formal training in data science and artificial intelligence, and the public projects listed under Open work: fraud risk, automated modelling, forecasting and model explainability.</td>
+<td valign="top"><code>2026</code></td>
+<td valign="top"><b>Data Science Intern</b><br><sub>Spinnaker Analytics · Boston, MA</sub><br>Machine learning models for risk classification, with cost-aware evaluation and explanations that non-technical stakeholders could act on.</td>
 </tr>
 <tr>
-<td valign="top"><b>Founder and operations manager</b><br><sub>StunnShot · three 24×7 gaming cafés, New Delhi · 2017 to 2020</sub></td>
-<td valign="top">Owned the profit and loss, pricing, vendors, hiring and rosters across three locations at once. It taught me to listen for the real problem behind a request, to count the cost of every decision, and to be accountable when something fails at two in the morning.</td>
+<td valign="top"><code>2025&nbsp;–&nbsp;2026</code></td>
+<td valign="top"><b>Diploma in Data Science and Artificial Intelligence</b><br><sub>Boston Institute of Analytics</sub><br>Formal training behind the public projects under Open work.</td>
+</tr>
+<tr>
+<td valign="top"><code>2025</code></td>
+<td valign="top"><b>Human Resources Intern</b><br><sub>Engineers India Limited · New Delhi</sub><br>Documentation and compliance checks across HR, finance and operations for an international deployment of employees.</td>
+</tr>
+<tr>
+<td valign="top"><code>2024&nbsp;–&nbsp;2026</code></td>
+<td valign="top"><b>MBA in Business Analytics and Human Resources</b><br><sub>Bharati Vidyapeeth University</sub><br>The business side of the work: analytics for decisions, people and organisations.</td>
+</tr>
+<tr>
+<td valign="top"><code>2020&nbsp;–&nbsp;2023</code></td>
+<td valign="top"><b>Bachelor of Computer Applications (BCA)</b><br><sub>Bharati Vidyapeeth University</sub><br>Computer science and programming foundations.</td>
+</tr>
+<tr>
+<td valign="top"><code>2017&nbsp;–&nbsp;2020</code></td>
+<td valign="top"><b>Founder and operations manager</b><br><sub>StunnShot · three 24×7 gaming cafés, New Delhi</sub><br>Owned the profit and loss, pricing, vendors, hiring and rosters across three locations at once. It taught me to listen for the real problem behind a request, to count the cost of every decision, and to be accountable when something fails at two in the morning.</td>
 </tr>
 </table>
 
-<br>
-
-## Education and certifications
-
-**Degrees** &nbsp; MBA in Business Analytics and Human Resources, Bharati Vidyapeeth University · Bachelor of Computer Applications (BCA), Bharati Vidyapeeth University<br>
-**Data science and AI** &nbsp; Diploma in Data Science and Artificial Intelligence, Boston Institute of Analytics<br>
-**Business analytics** &nbsp; Business Analytics Specialization, University of Pennsylvania (Wharton) · Business Analytics Plus, IMS Proschool<br>
-**Forward deployed engineering** &nbsp; Forward Deployed Engineering programme, NeuraPath Academy <i>(in progress)</i>
+**Certifications** &nbsp; Business Analytics Specialization, University of Pennsylvania (Wharton) · Business Analytics Plus, IMS Proschool · Forward Deployed Engineering programme, NeuraPath Academy <i>(in progress)</i>
 
 <br>
 
