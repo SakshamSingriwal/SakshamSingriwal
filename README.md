@@ -1,73 +1,114 @@
-# Saksham Singriwal
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
+  <img src="assets/banner-light.svg" alt="Saksham Singriwal, Forward Deployed Engineer" width="100%">
+</picture>
 
-**Applied AI Engineer · Machine Learning Engineer · Data Scientist · Data Analyst · Business & Data Consultant · Business Analyst · HR/People Analytics · aspiring Forward Deployed Engineer**
-New Delhi, India · [LinkedIn](https://linkedin.com/in/saksham-singriwal-71b7a8173) · sakshamsingriwal1997@gmail.com
+<br>
 
-🚀 Building enterprise AI applications and data-science platforms, end to end.
+I am a **Forward Deployed Engineer at NOVIXO AI**. I work between a customer's problem and the software that solves it: I find out what the business actually needs, design the solution, build and integrate it on the cloud, and stay with it until people use it.
 
----
+I came to this role in steps. I founded and ran a chain of three 24×7 gaming cafés, moved into data science, joined NOVIXO AI as an Associate Data Scientist working on machine learning and language processing for drug safety, and now deliver enterprise software to customers as a Forward Deployed Engineer. I have made payroll, negotiated with vendors and lost sleep over a broken billing counter, which is why I care whether software works for the person on the floor and not only in a demo.
 
-## About
+New Delhi, India &nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/saksham-singriwal-71b7a8173) &nbsp;·&nbsp; sakshamsingriwal1997@gmail.com
 
-I build machine learning, deep learning, and generative AI systems (RAG, LLMs, multi-agent architectures) — and I ship them as complete, working products, not notebooks. That habit comes from an unusual starting point: before I was writing Python, I was running a business.
+<br>
 
-I founded and operated a chain of three 24x7 gaming cafes (2017–2020), where I identified the operational gaps a spreadsheet couldn't fix and led the requirements-gathering and development of a custom ERP — billing, membership, CRM, bookings, POS, real-time floor management — across 10 milestones and 86 tests. That project is where I learned that the hard part of software is rarely the algorithm; it's understanding what the business actually needs, translating it into a spec, and being accountable for whether it works in production. I've since turned that ERP into a freelance product, developing and deploying it commercially for independent cafe and lounge owners beyond my own locations.
+## How I work
 
-That's also why **Forward Deployed Engineering** is the direction I'm building toward: sitting close to the customer's real problem, owning the translation from ambiguous business need to a working AI system, and iterating fast until it's actually adopted — not just demoed. I'm currently advancing that path through NeuraPath Academy's Forward Deployed Engineer program (2026–2027), on top of an MBA in Business Analytics & HR, a Diploma in Data Science & AI (Boston Institute of Analytics), and Business Analytics certifications from Wharton (UPenn) and IMS Proschool.
+<table>
+<tr>
+<td width="33%" valign="top">
 
----
+**1 &nbsp; Understand**
 
-## What I've built
+Sit with the people who do the work and the people who pay for it. Turn a loose need into requirements, a data model and a plan they sign off.
 
-| Project | What it does | Stack |
+</td>
+<td width="33%" valign="top">
+
+**2 &nbsp; Build**
+
+Cloud services, APIs and integrations, data and AI components. Tested, auditable and secure enough for a regulated customer to accept.
+
+</td>
+<td width="33%" valign="top">
+
+**3 &nbsp; Deliver**
+
+Deploy, train, measure and iterate with the customer. Own the outcome, not the ticket.
+
+</td>
+</tr>
+</table>
+
+<br>
+
+## A product from my own business
+
+**Gaming café ERP.** I ran the cafés this was built for, so the requirements came from the floor: one session and billing engine for every table and console, a live floor view, customers and memberships, a wallet, bookings without clashes, a food and beverage counter, and separate apps for the owner and for customers.
+
+`NestJS` `PostgreSQL` `Prisma` `React` `Socket.IO` `Docker`
+
+<sub>The code is private.</sub>
+
+<br>
+
+## Open work
+
+Earlier projects from my data science and machine learning work, all public.
+
+| Project | What it is | Stack |
 |---|---|---|
-| **[Sentinel](https://github.com/SakshamSingriwal/sentinel-fraud-risk-studio)** — AI Fraud Risk Analytics Studio | Dual-mode fraud platform: auto-detects label availability and applies supervised ML (XGBoost, CatBoost, SMOTE) or unsupervised anomaly detection (Isolation Forest, LOF, One-Class SVM). Leakage-free train/val/test pipeline, SHAP explainability, plain-English risk summaries for non-technical stakeholders. | Python, XGBoost, CatBoost, SHAP, Streamlit |
-| **[Apex DS](https://github.com/SakshamSingriwal/apex-ds-enterprise-analytics)** — Enterprise Analytics Studio | Local-first, zero-cloud platform with 13 integrated modules: AutoML (AutoGluon), deep learning (ANN/CNN/LSTM/GRU/Transformer), clustering, Prophet forecasting, RAG document chat, NL-to-SQL, and an unattended Autopilot batch pipeline. Fully offline, zero paid API cost. | Python, AutoGluon, Ollama/Mistral, DuckDB, Prophet |
-| **[DS Studio](https://github.com/SakshamSingriwal/DS_STUDIO)** | General-purpose successor to Sentinel — same rigor (leakage-free ML, SHAP, calibration diagnostics), generalized to any tabular problem: classification, regression, anomaly detection, or time-series forecasting, with Optuna-tuned hyperparameters and optional LLM-assisted explanations. | Python, scikit-learn, Optuna, Streamlit |
-| **[Galactic Data Forge](https://github.com/SakshamSingriwal/galactic-data-forge)** — Senior Data Scientist Workbench | An 11-step guided pipeline from raw upload through EDA, 20+ hypothesis tests, preprocessing, classical ML, and deep learning to export — built for rigor at every step, not just a fast model. | Python, scikit-learn, TensorFlow, Streamlit |
-| **Gaming Café ERP System** *(private — commercial)* | Full-stack, AI-assisted ERP built from my own gaming-cafe operations: universal session/billing engine, real-time floor dashboard, CRM, membership tiers, wallet ledger, conflict-aware bookings, F&B POS. Now sold and deployed as a freelance product to independent cafe and lounge owners. | NestJS 11, PostgreSQL, React 18, Socket.IO, Prisma |
+| [**Sentinel**](https://github.com/SakshamSingriwal/sentinel-fraud-risk-studio) | Fraud-risk analytics studio. Chooses supervised models or anomaly detection from the data it is given, guards against leakage, and explains each result in plain language. | Python, XGBoost, CatBoost, SHAP, Streamlit |
+| [**Apex DS**](https://github.com/SakshamSingriwal/apex-ds-enterprise-analytics) | Analytics platform that runs fully offline: automated modelling, forecasting, clustering, document chat and question-to-SQL. | Python, AutoGluon, DuckDB, Prophet, Ollama |
+| [**DS Studio**](https://github.com/SakshamSingriwal/DS_STUDIO) | The general form of Sentinel for any tabular problem: classification, regression, anomaly detection and forecasting, with tuned models and explanations. | Python, scikit-learn, Optuna, Streamlit |
+| [**Galactic Data Forge**](https://github.com/SakshamSingriwal/galactic-data-forge) | A guided eleven-step pipeline from raw data through hypothesis tests and preprocessing to trained models. | Python, scikit-learn, TensorFlow, Streamlit |
 
----
+<br>
 
 ## Experience
 
-**Data Science Intern**, Spinnaker Analytics — Boston, MA *(Jul–Aug 2026)*
-- Build ML models for risk classification and fraud-adjacent business problems, applying cost-aware model evaluation, rigorous train/validation/test splits, and SHAP-based explainability.
-- Gather business requirements and translate them into ML pipeline decisions — defining success metrics in collaboration with cross-functional, non-technical stakeholders.
-- Deliver business-facing outputs (SHAP explainability summaries, risk reports) aligned to compliance and risk-management goals.
+<sub>ENTREPRENEURSHIP &nbsp;→&nbsp; DATA SCIENCE &nbsp;→&nbsp; ASSOCIATE DATA SCIENTIST &nbsp;→&nbsp; FORWARD DEPLOYED ENGINEER &nbsp;→&nbsp; ENTERPRISE SOLUTION DELIVERY</sub>
 
-**Human Resources Intern**, Engineers India Limited (Navratna PSU) — New Delhi *(Jun–Jul 2025)*
-- Coordinated cross-functional documentation and compliance checklists across HR, finance, and operations for the international deployment of 77 employees.
-- Reviewed 150+ candidate files against defined eligibility criteria, maintaining audit-ready compliance records.
+<table>
+<tr><th align="left" width="30%">Role</th><th align="left">What I do, or did</th></tr>
+<tr>
+<td valign="top"><b>Forward Deployed Engineer</b><br><sub>NOVIXO AI · present</sub></td>
+<td valign="top">Take enterprise software from a customer's requirement to working delivery: solution design, cloud and integration work, validation with the people who will use it, and the documents a regulated buyer asks for.</td>
+</tr>
+<tr>
+<td valign="top"><b>Associate Data Scientist</b><br><sub>NOVIXO AI</sub></td>
+<td valign="top">Data science, machine learning and natural language processing applied to pharmacovigilance, the monitoring of medicine safety.</td>
+</tr>
+<tr>
+<td valign="top"><b>Data science training and projects</b><br><sub>2025 to 2026</sub></td>
+<td valign="top">Formal training in data science and artificial intelligence, and the public projects listed under Open work: fraud risk, automated modelling, forecasting and model explainability.</td>
+</tr>
+<tr>
+<td valign="top"><b>Founder and operations manager</b><br><sub>StunnShot · three 24×7 gaming cafés, New Delhi · 2017 to 2020</sub></td>
+<td valign="top">Owned the profit and loss, pricing, vendors, hiring and rosters across three locations at once. It taught me to listen for the real problem behind a request, to count the cost of every decision, and to be accountable when something fails at two in the morning.</td>
+</tr>
+</table>
 
-**Freelance ERP Developer** — Gaming Café ERP System
-- Took the custom ERP I originally built for my own gaming-cafe chain and rebuilt it into a sellable product; now developing, deploying, and supporting it as a freelance/commercial engagement for independent cafe and lounge owners.
-- Own the full lifecycle for each client — requirements, customization, deployment, and ongoing support — across billing, membership, real-time floor management, and POS.
+<br>
 
-**Founder & Operations Manager**, StunnShot — Chain of Three 24x7 Gaming Cafes — New Delhi *(Aug 2017–Feb 2020)*
-- Identified operational inefficiencies and led development of a custom ERP, gathering business requirements (BRD) and translating them into a 10-milestone, 86-test production application spanning billing, membership, CRM, bookings, POS, and real-time floor management.
-- Managed full P&L, vendor negotiation, procurement, and team coordination across three simultaneous business locations.
+## Education and certifications
 
----
+**Degrees** &nbsp; MBA in Business Analytics and Human Resources, Bharati Vidyapeeth University · Bachelor of Computer Applications (BCA), Bharati Vidyapeeth University<br>
+**Data science and AI** &nbsp; Diploma in Data Science and Artificial Intelligence, Boston Institute of Analytics<br>
+**Business analytics** &nbsp; Business Analytics Specialization, University of Pennsylvania (Wharton) · Business Analytics Plus, IMS Proschool<br>
+**Forward deployed engineering** &nbsp; Forward Deployed Engineering programme, NeuraPath Academy <i>(in progress)</i>
 
-## Skills
+<br>
 
-**Programming & Data:** Python, SQL, Pandas, NumPy, EDA, Feature Engineering, Statistical Analysis, Hypothesis Testing, Git/GitHub
-**ML, DL & NLP:** Classification, Regression, Ensemble Learning, AutoML, Anomaly Detection, Imbalanced Data, Hyperparameter Tuning, Neural Networks, Text Classification, OCR
-**Generative AI & Agents:** RAG Pipelines, LLMs (Ollama/Mistral), LangChain, AI Agents & Multi-Agent Systems, Prompt Engineering, NL-to-SQL
-**BI, Consulting & Delivery:** SHAP, Power BI, Tableau, Streamlit, FastAPI, BRD/FRD, Requirements Gathering, Stakeholder Management, Full-Stack AI-Assisted Development (NestJS/React/PostgreSQL)
+## Toolbox
 
----
+**Languages and data** &nbsp; Python, TypeScript, SQL, PostgreSQL, DynamoDB<br>
+**Cloud and delivery** &nbsp; AWS (Lambda, API Gateway, S3, Cognito, CDK), Vercel, Docker, continuous integration<br>
+**Applications** &nbsp; React, Next.js, NestJS, FastAPI, REST APIs, webhooks, role-based access, audit trails<br>
+**Data and AI** &nbsp; Machine learning, model explainability, forecasting, language-model applications with retrieval, evaluation and guardrails<br>
+**With customers** &nbsp; Requirements, solution design, demos, training, documentation, stakeholder management
 
-## Education
+<br>
 
-- MBA — Business Analytics & Human Resources, Bharati Vidyapeeth University (2024–2026)
-- Diploma — Data Science & Artificial Intelligence, Boston Institute of Analytics (2025–2026)
-- BCA — Computer Science & Programming, Bharati Vidyapeeth University (2020–2023)
-- *(Ongoing)* Diploma — Forward Deployed Engineer, NeuraPath Academy (2026–2027)
-
-**Certifications:** Business Analytics Specialization — Wharton, University of Pennsylvania · Business Analytics Plus — IMS Proschool
-
----
-
-📫 Reach me at **sakshamsingriwal1997@gmail.com** or [LinkedIn](https://linkedin.com/in/saksham-singriwal-71b7a8173).
+<sub>Open to conversations about forward deployed engineering, solutions engineering and enterprise AI delivery.</sub>
