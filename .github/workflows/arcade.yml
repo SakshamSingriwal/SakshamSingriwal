@@ -1,0 +1,47 @@
+name: Refresh arcade scoreboard
+
+on:
+  schedule:
+    - cron: "23 2 * * *"   # daily, 07:53 IST
+  push:
+    branches: [main]
+    paths: ["scripts/**", ".github/workflows/arcade.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: arcade-scoreboard
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: High scores panel
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+        run: python3 scripts/scoreboard.py dist/scoreboard.svg
+
+      - name: Contribution snake (arcade palette)
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake.svg?color_snake=#FF3CAC&color_dots=#221A48,#4A1F78,#8C2AA8,#D6339C,#FF3CAC&color_dot_border=#07060F
+
+      - name: Publish to the output branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          build_dir: dist
+          target_branch: output
+          keep_history: false
+          jekyll: false
+          commit_message: "Refresh arcade scoreboard"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
