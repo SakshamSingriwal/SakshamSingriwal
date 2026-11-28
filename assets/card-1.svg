@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="620" height="252" viewBox="0 0 620 252" role="img" aria-label="Sentinel: Fraud-risk analytics studio. Chooses supervised models or anomaly detection from the data it is given, guards against leakage, and explains each result in plain language."><title>Sentinel: Fraud-risk analytics studio. Chooses supervised models or anomaly detection from the data it is given, guards against leakage, and explains each result in plain language.</title><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="252" viewBox="0 0 620 252" role="img" aria-label="Sentinel: fraud-risk analytics studio. Python, XGBoost, CatBoost, SHAP, Streamlit."><title>Sentinel: fraud-risk analytics studio. Python, XGBoost, CatBoost, SHAP, Streamlit.</title><style>
 @keyframes blink{0%,55%{opacity:1}56%,100%{opacity:0}}
 @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:1}}
 @keyframes sweep{0%{transform:translateY(-120px)}100%{transform:translateY(var(--h))}}

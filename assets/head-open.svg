@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="96" viewBox="0 0 1280 96" role="img" aria-label="OPEN WORK. ALL PUBLIC · PRESS PLAY"><title>OPEN WORK. ALL PUBLIC · PRESS PLAY</title><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="96" viewBox="0 0 1280 96" role="img" aria-label="Open work: earlier projects from my data science and machine learning work, all public."><title>Open work: earlier projects from my data science and machine learning work, all public.</title><style>
 @keyframes blink{0%,55%{opacity:1}56%,100%{opacity:0}}
 @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:1}}
 @keyframes sweep{0%{transform:translateY(-120px)}100%{transform:translateY(var(--h))}}

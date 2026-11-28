@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="620" height="252" viewBox="0 0 620 252" role="img" aria-label="Apex Ds: Analytics platform that runs fully offline: automated modelling, forecasting, clustering, document chat and question-to-SQL."><title>Apex Ds: Analytics platform that runs fully offline: automated modelling, forecasting, clustering, document chat and question-to-SQL.</title><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="252" viewBox="0 0 620 252" role="img" aria-label="Apex DS: offline analytics platform. Python, AutoGluon, DuckDB, Prophet, Ollama."><title>Apex DS: offline analytics platform. Python, AutoGluon, DuckDB, Prophet, Ollama.</title><style>
 @keyframes blink{0%,55%{opacity:1}56%,100%{opacity:0}}
 @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:1}}
 @keyframes sweep{0%{transform:translateY(-120px)}100%{transform:translateY(var(--h))}}

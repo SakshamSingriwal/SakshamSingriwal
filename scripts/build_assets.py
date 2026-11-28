@@ -5,15 +5,96 @@ The live scoreboard is built separately by scripts/scoreboard.py inside GitHub A
 
 from __future__ import annotations
 
+import html
+import re
 import random
+import sys
 from pathlib import Path
 
 from pixel import (AMBER, BG0, BG1, BG2, BG3, CYAN, DIM, LIME, LINE, MONO, MUTED, ORANGE, PINK,
                    SPRITE_H, SPRITE_W, TEXT, VIOLET, corners, esc, mono, num, ptext, sprite,
                    svg_close, svg_open, text_width, wrap)
 
-OUT = Path(__file__).resolve().parent.parent / "assets"
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "assets"
 W = 1280
+
+# Each panel's accessible label. It is also the alt text of the panel's <img> in README.md, word for
+# word; check_readme() at the end of the build fails if the two drift apart.
+ALT = {
+    "hero.svg": "Saksham Singriwal, Forward Deployed Engineer at NOVIXO AI. Press start.",
+    "player.svg": "Player select: Saksham Singriwal. Class: Forward Deployed Engineer. Guild: NOVIXO AI. "
+                  "Base: New Delhi, India. Origin: founder of three 24x7 gaming cafés.",
+    "stages.svg": "How I work. 1, Understand: sit with the people who do the work and the people who pay for it, "
+                  "and turn a loose need into requirements, a data model and a plan they sign off. 2, Build: cloud "
+                  "services, APIs and integrations, data and AI components, tested, auditable and secure enough for "
+                  "a regulated customer to accept. 3, Deliver: deploy, train, measure and iterate with the customer. "
+                  "Own the outcome, not the ticket.",
+    "products.svg": "NOVIXO Safety product map: Case Intake, Literature Monitoring and Quality Control are online; "
+                    "Aggregate Reporting is being built; Submissions and Acknowledgements, and Signal Detection and "
+                    "Management, are on the roadmap.",
+    "head-clients.svg": "Side quests: client delivery.",
+    "erp.svg": "Bonus level, a product from my own business: a gaming café ERP. I ran the cafés this was built for, "
+               "so the requirements came from the floor: one session and billing engine for every table and console, "
+               "a live floor view, customers and memberships, a wallet, bookings without clashes, a food and beverage "
+               "counter, and separate apps for the owner and for customers. Built with NestJS, PostgreSQL, Prisma, "
+               "React, Socket.IO and Docker.",
+    "head-open.svg": "Open work: earlier projects from my data science and machine learning work, all public.",
+    "card-1.svg": "Sentinel: fraud-risk analytics studio. Python, XGBoost, CatBoost, SHAP, Streamlit.",
+    "card-2.svg": "Apex DS: offline analytics platform. Python, AutoGluon, DuckDB, Prophet, Ollama.",
+    "card-3.svg": "DS Studio: data science studio for any tabular problem. Python, scikit-learn, Optuna, Streamlit.",
+    "card-4.svg": "Galactic Data Forge: guided eleven-step modelling pipeline. Python, scikit-learn, TensorFlow, "
+                  "Streamlit.",
+    "career.svg": "Career mode: founder and operations manager of StunnShot, three 24x7 gaming cafés (2017 to 2020); "
+                  "BCA (2020 to 2023); MBA in Business Analytics and HR (2024 to 2026); HR intern at Engineers India "
+                  "Limited (2025); Data Science intern at Spinnaker Analytics (2025); Associate Data Scientist at "
+                  "NOVIXO AI (Jan to Oct 2026); now Forward Deployed Engineer at NOVIXO AI (since Oct 2026); next, "
+                  "enterprise solution delivery.",
+    "achievements.svg": "Education: MBA in Business Analytics and Human Resources (2024 to 2026, grade A) and Bachelor "
+                        "of Computer Applications (2020 to 2023, grade A), both at BVIMR, Bharati Vidyapeeth "
+                        "University. Certifications: Diploma in Data Science and Diploma in Artificial Intelligence, "
+                        "Boston Institute of Analytics; Business Analytics Plus, IMS Proschool (2026); Business "
+                        "Analytics Specialization, University of Pennsylvania (Wharton); Forward Deployed Engineering "
+                        "programme, NeuraPath Academy, in progress. Side quest: basketball, 1st place in the "
+                        "inter-college tournament two years running (BCA) and 1st place intra-college (MBA).",
+    "inventory.svg": "Toolbox. Languages and data: Python, TypeScript, SQL, PostgreSQL, DynamoDB. Cloud and delivery: "
+                     "AWS Lambda, API Gateway, S3, Cognito, CDK, Bedrock, Vercel, Docker, continuous integration. "
+                     "Applications: React, Next.js, NestJS, FastAPI, Hono, REST APIs, webhooks, role-based access, "
+                     "audit trails. Data and AI: machine learning, model explainability, forecasting, language-model "
+                     "applications with retrieval, evaluation and guardrails. With customers: requirements, solution "
+                     "design, demos, training, documentation, stakeholder management.",
+    "footer.svg": "Thanks for playing. Open to conversations about forward deployed engineering, solutions "
+                  "engineering and enterprise AI delivery.",
+    "btn-linkedin.svg": "LinkedIn",
+    "btn-email.svg": "Email sakshamsingriwal1997@gmail.com",
+    "btn-github.svg": "GitHub repositories",
+}
+
+MONO_ADVANCE = 0.6  # width of one monospace character, in em (JetBrains Mono, SF Mono and Menlo are 0.6)
+
+
+def mono_width(text: str, size: float) -> float:
+    return len(text) * size * MONO_ADVANCE
+
+
+def fits(text: str, size: float, room: float, where: str) -> None:
+    """Stop the build if a line of monospace text would run out of its box."""
+    if mono_width(text, size) > room:
+        sys.exit(f"overflow in {where}: {text!r} needs {mono_width(text, size):.0f}px, has {room:.0f}px")
+
+
+def check_readme() -> None:
+    """Every README image of a panel must carry that panel's label, word for word, as its alt text."""
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    seen, bad = set(), []
+    for src, alt in re.findall(r'<img src="assets/([^"]+)"[^>]*?alt="([^"]*)"', readme):
+        seen.add(src)
+        if ALT.get(src) != html.unescape(alt):
+            bad.append(src)
+    bad += [name for name in ALT if name not in seen]
+    if bad:
+        sys.exit("README alt text and SVG label differ for: " + ", ".join(sorted(set(bad))))
+    print("  README alt text matches every panel label")
 
 
 def save(name: str, svg: str) -> None:
@@ -58,8 +139,7 @@ def hero() -> None:
         f'<stop offset=".35" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff"/></linearGradient>'
         f'<mask id="fm"><rect y="{HORIZON}" width="{W}" height="{H - HORIZON}" fill="url(#floorfade)"/></mask>'
     )
-    p = [svg_open(W, H, "Saksham Singriwal, Forward Deployed Engineer at NOVIXO AI. Player one, press start.",
-                  css, defs)]
+    p = [svg_open(W, H, ALT["hero.svg"], css, defs)]
     p.append(f'<rect y="{HORIZON - 260}" width="{W}" height="260" fill="url(#sky)"/>')
 
     # starfield
@@ -183,8 +263,7 @@ def player() -> None:
             f'<stop offset="1" stop-color="{CYAN}" stop-opacity="0"/></radialGradient>'
             f'<linearGradient id="nm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/>'
             f'<stop offset="1" stop-color="#C9C2FF"/></linearGradient>')
-    p = [svg_open(W, H, "Player select. Saksham Singriwal. Class: Forward Deployed Engineer at NOVIXO AI, "
-                        "based in New Delhi, India. Origin: founder of three 24x7 gaming cafés.", css, defs)]
+    p = [svg_open(W, H, ALT["player.svg"], css, defs)]
     p.append(ptext("◀ SELECT YOUR PLAYER ▶", W / 2, 30, 3, AMBER, "middle", attrs='filter="url(#glow)"'))
 
     # portrait card
@@ -253,7 +332,7 @@ def stages() -> None:
                                        "Own the outcome, not the ticket."])]
     css = "@keyframes flow{to{stroke-dashoffset:-40}}"
     path = f"M230 {NY} C 380 {NY - 70}, 490 {NY + 70}, 640 {NY} C 790 {NY - 70}, 900 {NY + 70}, 1050 {NY}"
-    p = [svg_open(W, H, "How I work, in three stages. One: understand. Two: build. Three: deliver.", css)]
+    p = [svg_open(W, H, ALT["stages.svg"], css)]
     p.append(ptext("WORLD 1", 48, 30, 2, PINK) + ptext("HOW I WORK", 48, 52, 3.4, TEXT))
     p.append(ptext("3 STAGES", W - 48, 30, 2, MUTED, "end") + ptext("NO CONTINUES NEEDED", W - 48, 52, 2, DIM, "end"))
     p.append(f'<path d="{path}" fill="none" stroke="{LINE}" stroke-width="10" stroke-linecap="round"/>'
@@ -302,8 +381,7 @@ def products() -> None:
              ("AGGREGATE", ["Aggregate", "Reporting"], "building"),
              ("SUBMISSIONS", ["Submissions and", "Acknowledgements"], "roadmap"),
              ("SIGNALS", ["Signal Detection", "and Management"], "roadmap")]
-    p = [svg_open(W, H, "NOVIXO Safety product map: Case Intake, Literature Monitoring and Quality Control are online; "
-                        "Aggregate Reporting is being built; Submissions and Signal Detection are on the roadmap.", css, defs)]
+    p = [svg_open(W, H, ALT["products.svg"], css, defs)]
     p.append(ptext("WORLD 2", 48, 30, 2, PINK) + ptext("NOVIXO SAFETY", 48, 52, 3.4, TEXT))
     p.append(mono("A drug-safety (pharmacovigilance) platform · multi-tenant, serverless on AWS · built for inspection",
                   48, 100, 14.5, MUTED))
@@ -354,7 +432,7 @@ def products() -> None:
 def header(name: str, kicker: str, title: str, color: str, note: str) -> None:
     H = 96
     css = "@keyframes run{0%{transform:translateX(0)}100%{transform:translateX(-36px)}}"
-    p = [svg_open(W, H, f"{title}. {note}", css)]
+    p = [svg_open(W, H, ALT[name], css)]
     p.append(ptext(kicker, 48, 26, 2, color) + ptext(title, 48, 48, 3.4, TEXT))
     tw = max(text_width(title, 3.4), text_width(kicker, 2))
     sx = 48 + tw + 40
@@ -377,9 +455,7 @@ def erp() -> None:
 @keyframes sess{0%{width:0}100%{width:var(--w)}}
 @keyframes flick{0%,100%{opacity:1}50%{opacity:.35}}
 """
-    p = [svg_open(W, H, "Bonus level: a gaming café ERP built from running three cafés. One session and billing engine "
-                        "for every table and console, a live floor view, memberships, a wallet, bookings without clashes "
-                        "and a food and beverage counter.", css)]
+    p = [svg_open(W, H, ALT["erp.svg"], css)]
     p.append(ptext("BONUS LEVEL · HOME TURF", 48, 30, 2, AMBER))
     p.append(ptext("GAMING CAFE ERP", 48, 54, 4, TEXT, attrs='filter="url(#glow)"'))
     desc = ("I ran the cafés this was built for, so the requirements came from the floor: one session and billing "
@@ -441,7 +517,7 @@ def cards() -> None:
                                     "preprocessing to trained models.", ["Python", "scikit-learn", "TensorFlow", "Streamlit"], LIME)]
     CW, CH = 620, 252
     for i, (name, desc, stack, col) in enumerate(data, 1):
-        p = [svg_open(CW, CH, f"{name.title()}: {desc}")]
+        p = [svg_open(CW, CH, ALT[f"card-{i}.svg"])]
         p.append(f'<rect x="0" y="0" width="12" height="{CH}" fill="{col}" opacity=".9"/>')
         for k in range(6):
             p.append(f'<rect x="{CW - 56 + (k % 2) * 14}" y="{30 + k * 10}" width="8" height="4" fill="{LINE}"/>')
@@ -464,25 +540,39 @@ def cards() -> None:
 # 8. Career mode
 # ---------------------------------------------------------------------------
 def career() -> None:
-    H = 430
+    H = 486
     css = "@keyframes coin{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.15)}}"
-    levels = [("2017-2020", ["Founder and", "operations manager"], "StunnShot · 3 cafés", VIOLET),
-              ("2025-2026", ["Data science", "training & projects"], "Diploma + open work", "#6C7BFF"),
-              ("2026", ["Associate", "Data Scientist"], "NOVIXO AI", CYAN),
-              ("NOW", ["Forward Deployed", "Engineer"], "NOVIXO AI", PINK),
-              ("NEXT", ["Enterprise solution", "delivery"], "the next stage", AMBER)]
-    p = [svg_open(W, H, "Career mode: founder of three gaming cafés (2017 to 2020), data science training (2025 to 2026), "
-                        "Associate Data Scientist at NOVIXO AI (2026), now Forward Deployed Engineer at NOVIXO AI, "
-                        "next: enterprise solution delivery.", css)]
+    TS, OS, YS = 16, 13.5, 2.2  # title size, organisation size, pixel scale of the dates
+    # (dates, lines, colour, kind); a line is (text, "t") for a title or (text, "o") for an organisation
+    levels = [("2017-2020", [("Founder and", "t"), ("operations", "t"), ("manager", "t"),
+                             ("StunnShot, 3 cafés", "o")], VIOLET, ""),
+              ("2020-2023", [("Bachelor of", "t"), ("Computer", "t"), ("Applications", "t"), ("BVIMR", "o")],
+               "#6C7BFF", ""),
+              ("2024-2026", [("MBA, Business", "t"), ("Analytics and HR", "t"), ("BVIMR", "o")], "#6C7BFF", ""),
+              ("2025", [("HR intern", "t"), ("Engineers India Limited", "o"), ("Data science intern", "t"),
+                        ("Spinnaker Analytics", "o")], LIME, ""),
+              ("JAN 2026", [("Associate", "t"), ("Data Scientist", "t"), ("NOVIXO AI", "o")], CYAN, ""),
+              ("OCT 2026", [("Forward Deployed", "t"), ("Engineer", "t"), ("NOVIXO AI", "o")], PINK, "now"),
+              ("NEXT", [("Enterprise", "t"), ("solution", "t"), ("delivery", "t"), ("the next stage", "o")],
+               AMBER, "next")]
+    n, gap = len(levels), 16
+    here = "YOU ARE HERE ▼"
+    # each column is as wide as its longest line, and the spare width is shared out evenly
+    need = [max([text_width(yrs, YS)] + [mono_width(t, TS if k == "t" else OS) for t, k in lines]
+                + ([text_width(here, 1.8)] if kind == "now" else []))
+            for yrs, lines, _, kind in levels]
+    slack = (W - 96 - gap * (n - 1) - sum(need)) / n
+    if slack < 8:
+        sys.exit(f"career.svg is too crowded: {slack:.1f}px of spare width per column")
+
+    p = [svg_open(W, H, ALT["career.svg"], css)]
     p.append(ptext("CAREER MODE", 48, 30, 2, PINK) + ptext("EXPERIENCE", 48, 52, 3.4, TEXT))
-    p.append(ptext("5 LEVELS · 1 LIFE", W - 48, 40, 2, MUTED, "end"))
-    colw = (W - 96) / 5
-    for i, (yrs, title, org, col) in enumerate(levels):
-        x = 48 + i * colw
-        top = 330 - i * 34
-        pw = colw - 26
-        nxt = yrs == "NEXT"
-        now = yrs == "NOW"
+    p.append(ptext(f"{n} LEVELS · 1 LIFE", W - 48, 40, 2, MUTED, "end"))
+    x = 48.0
+    for i, (yrs, lines, col, kind) in enumerate(levels):
+        pw = need[i] + slack
+        top = 394 - i * 30
+        nxt, now = kind == "next", kind == "now"
         if nxt:
             p.append(f'<rect x="{num(x)}" y="{top}" width="{num(pw)}" height="{H - top + 10}" fill="none" stroke="{col}" '
                      f'stroke-width="2" stroke-dasharray="7 6" opacity=".7"/>')
@@ -498,39 +588,58 @@ def career() -> None:
         if now:
             p.append(f'<rect x="{num(x)}" y="{top}" width="{num(pw)}" height="40" fill="{col}" opacity=".35" filter="url(#softglow)"/>')
         p.append(ptext(f"LV {i + 1}", x + 14, top + 22, 2, col))
+        ty = top - 124
         if now:
-            p.append(ptext("YOU ARE HERE ▼", x + pw / 2, top - 134, 1.8, PINK, "middle", attrs='class="blink"'))
-        ty = top - 106
-        p.append(ptext(yrs, x, ty, 2.2, col))
-        for k, ln in enumerate(title):
-            p.append(mono(ln, x, ty + 38 + k * 21, 16, TEXT if not nxt else MUTED, weight=700))
-        p.append(mono(org, x, ty + 86, 13.5, MUTED))
-        if i < 4:  # coin between levels
-            ccx, ccy = x + pw + 13, top - 150
+            p.append(ptext(here, x + pw / 2, ty - 28, 1.8, PINK, "middle", attrs='class="blink"'))
+        p.append(ptext(yrs, x, ty, YS, col))
+        ly, prev = ty + 38, None
+        for text, k in lines:
+            if prev is not None:
+                ly += 21 if (prev, k) == ("t", "t") else 23 if k == "o" else 25
+            fits(text, TS if k == "t" else OS, pw, "career.svg")
+            if k == "t":
+                p.append(mono(text, x, ly, TS, TEXT if not nxt else MUTED, weight=700))
+            else:
+                p.append(mono(text, x, ly, OS, MUTED))
+            prev = k
+        if i < n - 1:  # coin between levels
+            ccx, ccy = x + pw + gap / 2, ty - 40
             p.append(f'<g transform="translate({num(ccx)} {ccy})"><g style="animation:coin 1.3s ease-in-out {i * .3:.1f}s infinite">'
                      f'<rect x="-6" y="-9" width="12" height="18" rx="3" fill="{AMBER}"/>'
                      f'<rect x="-1.5" y="-5" width="3" height="10" fill="{ORANGE}"/></g></g>')
+        x += pw + gap
     p.append(svg_close(W, H))
     save("career.svg", "".join(p))
 
 
 # ---------------------------------------------------------------------------
-# 9. Achievements (education and certifications)
+# 9. Achievements (education, certifications and one side quest)
 # ---------------------------------------------------------------------------
 def achievements() -> None:
-    H = 372
+    H = 504
     css = "@keyframes grow{0%{width:0}70%,100%{width:var(--w)}}@keyframes shine{0%,80%{transform:translateX(-80px)}100%{transform:translateX(420px)}}"
-    items = [("MBA, Business Analytics and HR", "Bharati Vidyapeeth University", AMBER, False),
-             ("Bachelor of Computer Applications", "Bharati Vidyapeeth University", AMBER, False),
-             ("Diploma, Data Science and AI", "Boston Institute of Analytics", CYAN, False),
-             ("Business Analytics Specialization", "University of Pennsylvania (Wharton)", CYAN, False),
-             ("Business Analytics Plus", "IMS Proschool", CYAN, False),
-             ("Forward Deployed Engineering", "NeuraPath Academy", PINK, True)]
-    p = [svg_open(W, H, "Achievements: " + "; ".join(f"{a}, {b}" for a, b, _, _ in items) + " (in progress).", css)]
-    p.append(ptext("TROPHY ROOM", 48, 30, 2, AMBER) + ptext("EDUCATION", 48, 52, 3.4, TEXT))
-    p.append(ptext("5/6 UNLOCKED", W - 48, 40, 2, MUTED, "end"))
+    bvimr = "BVIMR, Bharati Vidyapeeth University"
+    bia = "Boston Institute of Analytics"
+    # (title, organisation, badge, colour, in progress)
+    items = [("MBA, Business Analytics and HR", bvimr, "UNLOCKED 2024-2026 · GRADE A", AMBER, False),
+             ("Bachelor of Computer Applications", bvimr, "UNLOCKED 2020-2023 · GRADE A", AMBER, False),
+             ("Diploma in Data Science", bia, "ACHIEVEMENT UNLOCKED", CYAN, False),
+             ("Diploma in Artificial Intelligence", bia, "ACHIEVEMENT UNLOCKED", CYAN, False),
+             ("Business Analytics Plus", "IMS Proschool", "UNLOCKED 2026", CYAN, False),
+             ("Business Analytics Specialization", "University of Pennsylvania (Wharton)", "ACHIEVEMENT UNLOCKED",
+              CYAN, False),
+             ("Forward Deployed Engineering", "NeuraPath Academy", "IN PROGRESS", PINK, True)]
+    done = sum(not prog for *_, prog in items)
+    p = [svg_open(W, H, ALT["achievements.svg"], css)]
+    p.append(ptext("TROPHY ROOM", 48, 30, 2, AMBER) + ptext("EDUCATION & CERTIFICATIONS", 48, 52, 3.4, TEXT))
+    p.append(ptext(f"{done}/{len(items)} UNLOCKED", W - 48, 40, 2, MUTED, "end"))
     tw, th, gx, gy = 384, 112, 20, 20
-    for i, (title, org, col, prog) in enumerate(items):
+
+    def pixels(px: float, py: float, rows: list[str], colours: dict[str, str], t: float = 4) -> str:
+        return "".join(f'<rect x="{num(px + cc * t)}" y="{num(py + rr * t)}" width="{t}" height="{t}" fill="{colours[ch]}"/>'
+                       for rr, row in enumerate(rows) for cc, ch in enumerate(row) if ch in colours)
+
+    for i, (title, org, badge, col, prog) in enumerate(items):
         r, c = divmod(i, 3)
         x, y = 48 + c * (tw + gx), 104 + r * (th + gy)
         p.append(f'<svg x="{x}" y="{y}" width="{tw}" height="{th}">'
@@ -538,24 +647,42 @@ def achievements() -> None:
                  f'<rect y="0" width="40" height="{th}" fill="#fff" opacity=".05" transform="skewX(-20)" '
                  f'style="animation:shine 6s ease-in-out {i * .5:.1f}s infinite"/></svg>')
         # pixel trophy
-        tx, ty_ = x + 22, y + 38
-        t = 4
-        cup = ["#######", "#######", ".#####.", "..###..", "...#...", "..###..", ".#####."]
-        for rr, row in enumerate(cup):
-            for cc, chh in enumerate(row):
-                if chh == "#":
-                    fill = col if not prog else DIM
-                    p.append(f'<rect x="{tx + cc * t}" y="{ty_ + rr * t}" width="{t}" height="{t}" fill="{fill}"/>')
-        p.append(f'<rect x="{tx - t}" y="{ty_}" width="{t}" height="{t * 2}" fill="{col if not prog else DIM}"/>'
-                 f'<rect x="{tx + 7 * t}" y="{ty_}" width="{t}" height="{t * 2}" fill="{col if not prog else DIM}"/>')
+        tx, ty_, t = x + 22, y + 38, 4
+        cup_col = col if not prog else DIM
+        p.append(pixels(tx, ty_, ["#######", "#######", ".#####.", "..###..", "...#...", "..###..", ".#####."],
+                        {"#": cup_col}))
+        p.append(f'<rect x="{tx - t}" y="{ty_}" width="{t}" height="{t * 2}" fill="{cup_col}"/>'
+                 f'<rect x="{tx + 7 * t}" y="{ty_}" width="{t}" height="{t * 2}" fill="{cup_col}"/>')
         lx = x + 72
-        p.append(ptext("IN PROGRESS" if prog else "ACHIEVEMENT UNLOCKED", lx, y + 24, 1.5, col))
+        room = x + tw - 12 - lx
+        if text_width(badge, 1.5) > room:
+            sys.exit(f"overflow in achievements.svg: badge {badge!r}")
+        fits(title, 14.5, room, "achievements.svg")
+        fits(org, 12.5, room, "achievements.svg")
+        p.append(ptext(badge, lx, y + 24, 1.5, col))
         p.append(mono(title, lx, y + 60, 14.5, TEXT, weight=700))
         p.append(mono(org, lx, y + 82, 12.5, MUTED))
         if prog:
             bw = tw - 72 - 22
             p.append(f'<rect x="{lx}" y="{y + 92}" width="{bw}" height="6" rx="2" fill="{BG3}"/>'
                      f'<rect x="{lx}" y="{y + 92}" width="0" height="6" rx="2" fill="{PINK}" style="--w:{bw * .45:.0f}px;animation:grow 4s ease-out infinite"/>')
+
+    # side quest: one strip beside the last trophy
+    k = len(items)
+    r, c = divmod(k, 3)
+    x, y = 48 + c * (tw + gx), 104 + r * (th + gy)
+    sw = W - 48 - x
+    p.append(f'<rect x="{x}" y="{y}" width="{sw}" height="{th}" rx="8" fill="{BG1}" stroke="{ORANGE}" '
+             f'stroke-opacity=".6" stroke-width="1.5" stroke-dasharray="6 5"/>')
+    ball = ["..oso..", ".oosoo.", "ooosooo", "sssssss", "ooosooo", ".oosoo.", "..oso.."]
+    p.append(f'<g class="pulse">{pixels(x + 22, y + 38, ball, {"o": ORANGE, "s": BG0})}</g>')
+    lx = x + 72
+    quests = ["1st place, inter-college tournament, two years running (BCA)",
+              "1st place, intra-college tournament (MBA)"]
+    p.append(ptext("SIDE QUEST · BASKETBALL", lx, y + 24, 1.5, ORANGE))
+    for j, q in enumerate(quests):
+        fits(q, 14.5, x + sw - 12 - lx, "achievements.svg")
+        p.append(mono(q, lx, y + 60 + j * 24, 14.5, TEXT, weight=700))
     p.append(svg_close(W, H))
     save("achievements.svg", "".join(p))
 
@@ -590,7 +717,7 @@ def inventory() -> None:
         y = max(cy + 40, y + 50) + 22
         rows_svg.append(f'<rect x="{lx}" y="{y - 20}" width="{right - lx}" height="1" fill="{LINE}"/>')
     H = y + 14
-    p = [svg_open(W, H, "Inventory. " + " ".join(f"{l.title()}: {', '.join(i)}." for l, _, i in cats))]
+    p = [svg_open(W, H, ALT["inventory.svg"])]
     p.append(ptext("INVENTORY", 48, 30, 2, LIME) + ptext("TOOLBOX", 48, 52, 3.4, TEXT))
     p.append(ptext(f"{sum(len(i) for _, _, i in cats)} ITEMS EQUIPPED", W - 48, 40, 2, MUTED, "end"))
     p.extend(rows_svg[:-1])
@@ -603,8 +730,7 @@ def inventory() -> None:
 # ---------------------------------------------------------------------------
 def footer() -> None:
     H = 260
-    p = [svg_open(W, H, "Thanks for playing. Continue? Open to conversations about forward deployed engineering, "
-                        "solutions engineering and enterprise AI delivery.",
+    p = [svg_open(W, H, ALT["footer.svg"],
                   defs=f'<linearGradient id="nm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/>'
                        f'<stop offset="1" stop-color="{PINK}"/></linearGradient>')]
     p.append(ptext("CONTINUE?", W / 2 - 30, 40, 4, AMBER, "middle", attrs='filter="url(#glow)"'))
@@ -626,7 +752,7 @@ def footer() -> None:
                              ("btn-github.svg", "GITHUB", AMBER)]:
         bw, bh = 250, 64
         b = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{bw}" height="{bh}" viewBox="0 0 {bw} {bh}" role="img" '
-             f'aria-label="{label.title()}"><title>{label.title()}</title>'
+             f'aria-label="{esc(ALT[name])}"><title>{esc(ALT[name])}</title>'
              f'<style>@keyframes blink{{0%,55%{{opacity:1}}56%,100%{{opacity:.25}}}}'
              f'@media (prefers-reduced-motion:reduce){{*{{animation:none!important}}}}</style>'
              f'<rect x="2" y="8" width="{bw - 4}" height="{bh - 10}" rx="10" fill="{BG0}"/>'
@@ -650,3 +776,4 @@ if __name__ == "__main__":
     achievements()
     inventory()
     footer()
+    check_readme()

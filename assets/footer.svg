@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="260" viewBox="0 0 1280 260" role="img" aria-label="Thanks for playing. Continue? Open to conversations about forward deployed engineering, solutions engineering and enterprise AI delivery."><title>Thanks for playing. Continue? Open to conversations about forward deployed engineering, solutions engineering and enterprise AI delivery.</title><style>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="260" viewBox="0 0 1280 260" role="img" aria-label="Thanks for playing. Open to conversations about forward deployed engineering, solutions engineering and enterprise AI delivery."><title>Thanks for playing. Open to conversations about forward deployed engineering, solutions engineering and enterprise AI delivery.</title><style>
 @keyframes blink{0%,55%{opacity:1}56%,100%{opacity:0}}
 @keyframes twinkle{0%,100%{opacity:.15}50%{opacity:1}}
 @keyframes sweep{0%{transform:translateY(-120px)}100%{transform:translateY(var(--h))}}

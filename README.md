@@ -4,7 +4,7 @@
 
 I am a **Forward Deployed Engineer at NOVIXO AI**. I work between a customer's problem and the software that solves it: I find out what the business actually needs, design the solution, build and integrate it on the cloud, and stay with it until people use it.
 
-I came to this role in steps. I founded and ran a chain of three 24×7 gaming cafés, moved into data science, joined NOVIXO AI as an Associate Data Scientist working on machine learning and language processing for drug safety, and now deliver enterprise software to customers as a Forward Deployed Engineer. I have made payroll, negotiated with vendors and lost sleep over a broken billing counter, which is why I care whether software works for the person on the floor and not only in a demo.
+I came to this role in steps. I founded and ran a chain of three 24×7 gaming cafés, studied computer applications and then business analytics, moved into data science through an internship at Spinnaker Analytics, joined NOVIXO AI as an Associate Data Scientist working on machine learning and language processing for drug safety, and now deliver enterprise software to customers as a Forward Deployed Engineer. I have made payroll, negotiated with vendors and lost sleep over a broken billing counter, which is why I care whether software works for the person on the floor and not only in a demo.
 
 <img src="assets/player.svg" width="100%" alt="Player select: Saksham Singriwal. Class: Forward Deployed Engineer. Guild: NOVIXO AI. Base: New Delhi, India. Origin: founder of three 24x7 gaming cafés.">
 
@@ -95,7 +95,7 @@ A drug-safety (pharmacovigilance) platform for pharmaceutical companies and cont
 
 <br>
 
-<img src="assets/career.svg" width="100%" alt="Career mode: founder and operations manager of StunnShot, three 24x7 gaming cafés (2017 to 2020); data science training and projects (2025 to 2026); Associate Data Scientist at NOVIXO AI (2026); now Forward Deployed Engineer at NOVIXO AI; next, enterprise solution delivery.">
+<img src="assets/career.svg" width="100%" alt="Career mode: founder and operations manager of StunnShot, three 24x7 gaming cafés (2017 to 2020); BCA (2020 to 2023); MBA in Business Analytics and HR (2024 to 2026); HR intern at Engineers India Limited (2025); Data Science intern at Spinnaker Analytics (2025); Associate Data Scientist at NOVIXO AI (Jan to Oct 2026); now Forward Deployed Engineer at NOVIXO AI (since Oct 2026); next, enterprise solution delivery.">
 
 <details>
 <summary><b>Open the full experience log</b></summary>
@@ -104,20 +104,24 @@ A drug-safety (pharmacovigilance) platform for pharmaceutical companies and cont
 <table>
 <tr><th align="left" width="30%">Role</th><th align="left">What I do, or did</th></tr>
 <tr>
-<td valign="top"><b>Forward Deployed Engineer</b><br><sub>NOVIXO AI · present</sub></td>
-<td valign="top">Take enterprise software from a customer's requirement to working delivery: solution design, cloud and integration work, validation with the people who will use it, and the documents a regulated buyer asks for.</td>
+<td valign="top"><b>Forward Deployed Engineer</b><br><sub>NOVIXO AI · Noida, on-site · Oct 2026 to present</sub></td>
+<td valign="top">Design and deliver AI-enabled solutions for regulated drug-safety workflows, working across AI engineering, pharmacovigilance, product, compliance and customer teams. The work covers AI-assisted ICSR processing (document extraction, case-validity checks, MedDRA workflows, review and QC, E2B(R2/R3)), NLP, LLM and agentic AI workflows, and API- and MCP-based integrations, with human approval, role-based access and auditability built in. Turn PV, regulatory and customer requirements into technical workflows and implementation plans, and coordinate stakeholders from discovery and demos to implementation and handoff.</td>
 </tr>
 <tr>
-<td valign="top"><b>Associate Data Scientist</b><br><sub>NOVIXO AI</sub></td>
-<td valign="top">Data science, machine learning and natural language processing for pharmacovigilance: screening medical literature, removing duplicate articles, and finding the products and adverse events named in medical text.</td>
+<td valign="top"><b>Associate Data Scientist</b><br><sub>NOVIXO AI · Jan 2026 to Oct 2026</sub></td>
+<td valign="top">Applied AI, machine learning and NLP in pharmacovigilance: preprocessing, exploratory analysis, feature engineering and validation on structured and unstructured drug-safety data. Worked on adverse-event identification, risk classification and case triage, with evaluation suited to compliance-sensitive settings and SHAP explanations for PV, compliance and non-technical stakeholders. Helped move AI from experimentation toward enterprise workflows with human review and traceability.</td>
 </tr>
 <tr>
-<td valign="top"><b>Data science training and projects</b><br><sub>2025 to 2026</sub></td>
-<td valign="top">Formal training in data science and artificial intelligence, and the public projects listed under Open work: fraud risk, automated modelling, forecasting and model explainability.</td>
+<td valign="top"><b>Data Science Intern</b><br><sub>Spinnaker Analytics · Boston, Massachusetts, remote · Oct 2025 to Dec 2025</sub></td>
+<td valign="top">Predictive analytics in Python, SQL, Pandas and NumPy: data cleaning, validation, exploratory analysis and preprocessing. Feature engineering, model development and evaluation on classification and forecasting projects, with every experiment and finding documented.</td>
 </tr>
 <tr>
-<td valign="top"><b>Founder and operations manager</b><br><sub>StunnShot · three 24×7 gaming cafés, New Delhi · 2017 to 2020</sub></td>
-<td valign="top">Owned the profit and loss, pricing, vendors, hiring and rosters across three locations at once. It taught me to listen for the real problem behind a request, to count the cost of every decision, and to be accountable when something fails at two in the morning.</td>
+<td valign="top"><b>Human Resources Intern</b><br><sub>Engineers India Limited · New Delhi, on-site · Jun 2025 to Jul 2025</sub></td>
+<td valign="top">Planned the workforce budget for the international deployment of 77 employees and coordinated recruitment for more than 150 candidates. Prepared HR and compliance documentation, and Excel reports for workforce planning.</td>
+</tr>
+<tr>
+<td valign="top"><b>Founder and Operations Manager</b><br><sub>StunnShot · self-employed, New Delhi · Aug 2017 to Feb 2020</sub></td>
+<td valign="top">Founded and ran a chain of three 24×7 gaming cafés, owning the profit and loss, pricing, cash flow, costs, inventory and procurement. Hired, trained, scheduled and managed staff across three locations, negotiated with vendors and defined the operating processes. Tracked revenue, expenses and KPIs, and turned customer, staff and vendor feedback into improvements.</td>
 </tr>
 </table>
 
@@ -125,7 +129,7 @@ A drug-safety (pharmacovigilance) platform for pharmaceutical companies and cont
 
 <br>
 
-<img src="assets/achievements.svg" width="100%" alt="Education: MBA in Business Analytics and Human Resources and Bachelor of Computer Applications, Bharati Vidyapeeth University; Diploma in Data Science and Artificial Intelligence, Boston Institute of Analytics; Business Analytics Specialization, University of Pennsylvania (Wharton); Business Analytics Plus, IMS Proschool; Forward Deployed Engineering programme, NeuraPath Academy, in progress.">
+<img src="assets/achievements.svg" width="100%" alt="Education: MBA in Business Analytics and Human Resources (2024 to 2026, grade A) and Bachelor of Computer Applications (2020 to 2023, grade A), both at BVIMR, Bharati Vidyapeeth University. Certifications: Diploma in Data Science and Diploma in Artificial Intelligence, Boston Institute of Analytics; Business Analytics Plus, IMS Proschool (2026); Business Analytics Specialization, University of Pennsylvania (Wharton); Forward Deployed Engineering programme, NeuraPath Academy, in progress. Side quest: basketball, 1st place in the inter-college tournament two years running (BCA) and 1st place intra-college (MBA).">
 
 <img src="assets/inventory.svg" width="100%" alt="Toolbox. Languages and data: Python, TypeScript, SQL, PostgreSQL, DynamoDB. Cloud and delivery: AWS Lambda, API Gateway, S3, Cognito, CDK, Bedrock, Vercel, Docker, continuous integration. Applications: React, Next.js, NestJS, FastAPI, Hono, REST APIs, webhooks, role-based access, audit trails. Data and AI: machine learning, model explainability, forecasting, language-model applications with retrieval, evaluation and guardrails. With customers: requirements, solution design, demos, training, documentation, stakeholder management.">
 
