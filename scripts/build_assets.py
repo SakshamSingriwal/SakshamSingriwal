@@ -55,9 +55,7 @@ ALT = {
                         "University, offline. Certifications: Diploma in Data Science and Diploma in Artificial "
                         "Intelligence, Boston Institute of Analytics, offline; Business Analytics Plus, IMS Proschool "
                         "(2026), offline; Business Analytics Specialization, Wharton Online, University of "
-                        "Pennsylvania, online; Forward Deployed Engineering programme, NeuraPath Academy, offline. "
-                        "Side quest: basketball, 1st place in the "
-                        "inter-college tournament two years running (BCA) and 1st place intra-college (MBA).",
+                        "Pennsylvania, online; Forward Deployed Engineering programme, NeuraPath Academy, offline.",
     "inventory.svg": "Toolbox. Languages and data: Python, TypeScript, SQL, PostgreSQL, DynamoDB. Cloud and delivery: "
                      "AWS Lambda, API Gateway, S3, Cognito, CDK, Bedrock, Vercel, Docker, continuous integration. "
                      "Applications: React, Next.js, NestJS, FastAPI, Hono, REST APIs, webhooks, role-based access, "
@@ -614,7 +612,7 @@ def career() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 9. Achievements (education, certifications and one side quest)
+# 9. Achievements (education and certifications)
 # ---------------------------------------------------------------------------
 def achievements() -> None:
     H = 504
@@ -669,22 +667,6 @@ def achievements() -> None:
             p.append(f'<rect x="{lx}" y="{y + 92}" width="{bw}" height="6" rx="2" fill="{BG3}"/>'
                      f'<rect x="{lx}" y="{y + 92}" width="0" height="6" rx="2" fill="{PINK}" style="--w:{bw * .45:.0f}px;animation:grow 4s ease-out infinite"/>')
 
-    # side quest: one strip beside the last trophy
-    k = len(items)
-    r, c = divmod(k, 3)
-    x, y = 48 + c * (tw + gx), 104 + r * (th + gy)
-    sw = W - 48 - x
-    p.append(f'<rect x="{x}" y="{y}" width="{sw}" height="{th}" rx="8" fill="{BG1}" stroke="{ORANGE}" '
-             f'stroke-opacity=".6" stroke-width="1.5" stroke-dasharray="6 5"/>')
-    ball = ["..oso..", ".oosoo.", "ooosooo", "sssssss", "ooosooo", ".oosoo.", "..oso.."]
-    p.append(f'<g class="pulse">{pixels(x + 22, y + 38, ball, {"o": ORANGE, "s": BG0})}</g>')
-    lx = x + 72
-    quests = ["1st place, inter-college tournament, two years running (BCA)",
-              "1st place, intra-college tournament (MBA)"]
-    p.append(ptext("SIDE QUEST · BASKETBALL", lx, y + 24, 1.5, ORANGE))
-    for j, q in enumerate(quests):
-        fits(q, 14.5, x + sw - 12 - lx, "achievements.svg")
-        p.append(mono(q, lx, y + 60 + j * 24, 14.5, TEXT, weight=700))
     p.append(svg_close(W, H))
     save("achievements.svg", "".join(p))
 
