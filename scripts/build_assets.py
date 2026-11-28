@@ -52,10 +52,11 @@ ALT = {
                   "enterprise solution delivery.",
     "achievements.svg": "Education: MBA in Business Analytics and Human Resources (2024 to 2026, grade A) and Bachelor "
                         "of Computer Applications (2020 to 2023, grade A), both at BVIMR, Bharati Vidyapeeth "
-                        "University. Certifications: Diploma in Data Science and Diploma in Artificial Intelligence, "
-                        "Boston Institute of Analytics; Business Analytics Plus, IMS Proschool (2026); Business "
-                        "Analytics Specialization, University of Pennsylvania (Wharton); Forward Deployed Engineering "
-                        "programme, NeuraPath Academy, in progress. Side quest: basketball, 1st place in the "
+                        "University, offline. Certifications: Diploma in Data Science and Diploma in Artificial "
+                        "Intelligence, Boston Institute of Analytics, offline; Business Analytics Plus, IMS Proschool "
+                        "(2026), offline; Business Analytics Specialization, Wharton Online, University of "
+                        "Pennsylvania, online; Forward Deployed Engineering programme, NeuraPath Academy, offline, "
+                        "in progress. Side quest: basketball, 1st place in the "
                         "inter-college tournament two years running (BCA) and 1st place intra-college (MBA).",
     "inventory.svg": "Toolbox. Languages and data: Python, TypeScript, SQL, PostgreSQL, DynamoDB. Cloud and delivery: "
                      "AWS Lambda, API Gateway, S3, Cognito, CDK, Bedrock, Vercel, Docker, continuous integration. "
@@ -621,14 +622,15 @@ def achievements() -> None:
     bvimr = "BVIMR, Bharati Vidyapeeth University"
     bia = "Boston Institute of Analytics"
     # (title, organisation, badge, colour, in progress)
-    items = [("MBA, Business Analytics and HR", bvimr, "UNLOCKED 2024-2026 · GRADE A", AMBER, False),
-             ("Bachelor of Computer Applications", bvimr, "UNLOCKED 2020-2023 · GRADE A", AMBER, False),
-             ("Diploma in Data Science", bia, "ACHIEVEMENT UNLOCKED", CYAN, False),
-             ("Diploma in Artificial Intelligence", bia, "ACHIEVEMENT UNLOCKED", CYAN, False),
-             ("Business Analytics Plus", "IMS Proschool", "UNLOCKED 2026", CYAN, False),
-             ("Business Analytics Specialization", "University of Pennsylvania (Wharton)", "ACHIEVEMENT UNLOCKED",
+    # every badge ends with how the course was taken: OFFLINE (in person) or ONLINE
+    items = [("MBA, Business Analytics and HR", bvimr, "2024-2026 · GRADE A · OFFLINE", AMBER, False),
+             ("Bachelor of Computer Applications", bvimr, "2020-2023 · GRADE A · OFFLINE", AMBER, False),
+             ("Diploma in Data Science", bia, "UNLOCKED · OFFLINE", CYAN, False),
+             ("Diploma in Artificial Intelligence", bia, "UNLOCKED · OFFLINE", CYAN, False),
+             ("Business Analytics Plus", "IMS Proschool", "UNLOCKED 2026 · OFFLINE", CYAN, False),
+             ("Business Analytics Specialization", "Wharton Online, Univ. of Pennsylvania", "UNLOCKED · ONLINE",
               CYAN, False),
-             ("Forward Deployed Engineering", "NeuraPath Academy", "IN PROGRESS", PINK, True)]
+             ("Forward Deployed Engineering", "NeuraPath Academy", "IN PROGRESS · OFFLINE", PINK, True)]
     done = sum(not prog for *_, prog in items)
     p = [svg_open(W, H, ALT["achievements.svg"], css)]
     p.append(ptext("TROPHY ROOM", 48, 30, 2, AMBER) + ptext("EDUCATION & CERTIFICATIONS", 48, 52, 3.4, TEXT))
