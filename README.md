@@ -12,7 +12,7 @@ I came to this role in steps. I founded and ran a chain of three 24×7 gaming ca
 
 <br>
 
-<img src="assets/products.svg" width="100%" alt="NOVIXO Safety product map: Case Intake, Literature Monitoring and Quality Control are online; Aggregate Reporting is being built; Submissions and Acknowledgements, and Signal Detection and Management, are on the roadmap.">
+<img src="assets/products.svg" width="100%" alt="NOVIXO Safety product map, all six products complete and online: Case Intake, Literature Monitoring, Quality Control, Aggregate Reporting, Submissions and Acknowledgements, and Signal Detection and Management.">
 
 A drug-safety (pharmacovigilance) platform for pharmaceutical companies and contract research organisations. Multi-tenant and serverless on AWS, designed for audit trails, electronic signatures and regulatory inspection. Each product can be used alone or together with the others.
 
@@ -36,17 +36,17 @@ A drug-safety (pharmacovigilance) platform for pharmaceutical companies and cont
 <tr>
 <td valign="top"><b>Aggregate Reporting</b></td>
 <td valign="top">Builds the periodic safety reports regulators require (PBRER/PSUR, PADER, DSUR) from frozen data, with every number traceable to its cases.</td>
-<td valign="top">Leading the design and build of one configurable reporting engine for all three report types. <i>In development.</i></td>
+<td valign="top">Led the design and build of one configurable reporting engine for all three report types, with blinding protection for clinical trials and every number traceable to its cases.</td>
 </tr>
 <tr>
 <td valign="top"><b>Submissions and Acknowledgements</b></td>
 <td valign="top">Sends each case to the right authority on time, tracks the answer and handles rejections.</td>
-<td valign="top">Designing the versioned data contract that will connect it to reporting. <i>On the roadmap.</i></td>
+<td valign="top">Verified the flow end to end: routing rules, the E2B(R3) message, acknowledgements, rejections and retries, tested against a receiving-system simulator.</td>
 </tr>
 <tr>
 <td valign="top"><b>Signal Detection and Management</b></td>
 <td valign="top">Looks across all cases and articles for a new or changed risk, and follows it to a decision.</td>
-<td valign="top">Designing the versioned data contract for its signal summaries. <i>On the roadmap.</i></td>
+<td valign="top">Built detection and management: disproportionality alerts, validation by a second person, signed closure by the QPPV, and the signal summary that feeds the periodic report.</td>
 </tr>
 </table>
 
@@ -129,7 +129,7 @@ A drug-safety (pharmacovigilance) platform for pharmaceutical companies and cont
 
 <br>
 
-<img src="assets/achievements.svg" width="100%" alt="Education: MBA in Business Analytics and Human Resources (2024 to 2026, grade A) and Bachelor of Computer Applications (2020 to 2023, grade A), both at BVIMR, Bharati Vidyapeeth University, offline. Certifications: Diploma in Data Science and Diploma in Artificial Intelligence, Boston Institute of Analytics, offline; Business Analytics Plus, IMS Proschool (2026), offline; Business Analytics Specialization, Wharton Online, University of Pennsylvania, online; Forward Deployed Engineering programme, NeuraPath Academy, offline, in progress. Side quest: basketball, 1st place in the inter-college tournament two years running (BCA) and 1st place intra-college (MBA).">
+<img src="assets/achievements.svg" width="100%" alt="Education: MBA in Business Analytics and Human Resources (2024 to 2026, grade A) and Bachelor of Computer Applications (2020 to 2023, grade A), both at BVIMR, Bharati Vidyapeeth University, offline. Certifications: Diploma in Data Science and Diploma in Artificial Intelligence, Boston Institute of Analytics, offline; Business Analytics Plus, IMS Proschool (2026), offline; Business Analytics Specialization, Wharton Online, University of Pennsylvania, online; Forward Deployed Engineering programme, NeuraPath Academy, offline. Side quest: basketball, 1st place in the inter-college tournament two years running (BCA) and 1st place intra-college (MBA).">
 
 <img src="assets/inventory.svg" width="100%" alt="Toolbox. Languages and data: Python, TypeScript, SQL, PostgreSQL, DynamoDB. Cloud and delivery: AWS Lambda, API Gateway, S3, Cognito, CDK, Bedrock, Vercel, Docker, continuous integration. Applications: React, Next.js, NestJS, FastAPI, Hono, REST APIs, webhooks, role-based access, audit trails. Data and AI: machine learning, model explainability, forecasting, language-model applications with retrieval, evaluation and guardrails. With customers: requirements, solution design, demos, training, documentation, stakeholder management.">
 

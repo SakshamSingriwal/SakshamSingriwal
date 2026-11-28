@@ -30,9 +30,9 @@ ALT = {
                   "services, APIs and integrations, data and AI components, tested, auditable and secure enough for "
                   "a regulated customer to accept. 3, Deliver: deploy, train, measure and iterate with the customer. "
                   "Own the outcome, not the ticket.",
-    "products.svg": "NOVIXO Safety product map: Case Intake, Literature Monitoring and Quality Control are online; "
-                    "Aggregate Reporting is being built; Submissions and Acknowledgements, and Signal Detection and "
-                    "Management, are on the roadmap.",
+    "products.svg": "NOVIXO Safety product map, all six products complete and online: Case Intake, Literature "
+                    "Monitoring, Quality Control, Aggregate Reporting, Submissions and Acknowledgements, and Signal "
+                    "Detection and Management.",
     "head-clients.svg": "Side quests: client delivery.",
     "erp.svg": "Bonus level, a product from my own business: a gaming café ERP. I ran the cafés this was built for, "
                "so the requirements came from the floor: one session and billing engine for every table and console, "
@@ -55,8 +55,8 @@ ALT = {
                         "University, offline. Certifications: Diploma in Data Science and Diploma in Artificial "
                         "Intelligence, Boston Institute of Analytics, offline; Business Analytics Plus, IMS Proschool "
                         "(2026), offline; Business Analytics Specialization, Wharton Online, University of "
-                        "Pennsylvania, online; Forward Deployed Engineering programme, NeuraPath Academy, offline, "
-                        "in progress. Side quest: basketball, 1st place in the "
+                        "Pennsylvania, online; Forward Deployed Engineering programme, NeuraPath Academy, offline. "
+                        "Side quest: basketball, 1st place in the "
                         "inter-college tournament two years running (BCA) and 1st place intra-college (MBA).",
     "inventory.svg": "Toolbox. Languages and data: Python, TypeScript, SQL, PostgreSQL, DynamoDB. Cloud and delivery: "
                      "AWS Lambda, API Gateway, S3, Cognito, CDK, Bedrock, Vercel, Docker, continuous integration. "
@@ -379,14 +379,14 @@ def products() -> None:
     items = [("CASE INTAKE", ["Case", "Intake"], "online"),
              ("LITERATURE", ["Literature", "Monitoring"], "online"),
              ("QUALITY", ["Quality", "Control"], "online"),
-             ("AGGREGATE", ["Aggregate", "Reporting"], "building"),
-             ("SUBMISSIONS", ["Submissions and", "Acknowledgements"], "roadmap"),
-             ("SIGNALS", ["Signal Detection", "and Management"], "roadmap")]
+             ("AGGREGATE", ["Aggregate", "Reporting"], "online"),
+             ("SUBMISSIONS", ["Submissions and", "Acknowledgements"], "online"),
+             ("SIGNALS", ["Signal Detection", "and Management"], "online")]
     p = [svg_open(W, H, ALT["products.svg"], css, defs)]
     p.append(ptext("WORLD 2", 48, 30, 2, PINK) + ptext("NOVIXO SAFETY", 48, 52, 3.4, TEXT))
     p.append(mono("A drug-safety (pharmacovigilance) platform · multi-tenant, serverless on AWS · built for inspection",
                   48, 100, 14.5, MUTED))
-    legend = [("ONLINE", LIME), ("BUILDING", AMBER), ("ROADMAP", VIOLET)]
+    legend = [("6/6 COMPLETE", TEXT), ("ONLINE", LIME)]
     lx = W - 48
     for label, col in reversed(legend):
         lw = text_width(label, 1.8)
@@ -395,7 +395,7 @@ def products() -> None:
     tw, gap, x0, y0, th = 186, 14, 48, 128, 140
     for i, (_, name, state) in enumerate(items):
         x = x0 + i * (tw + gap)
-        col = {"online": LIME, "building": AMBER, "roadmap": VIOLET}[state]
+        col = {"online": LIME, "built": CYAN, "building": AMBER, "roadmap": VIOLET}[state]
         locked = state == "roadmap"
         dash = 'stroke-dasharray="6 5"' if locked else ""
         p.append(f'<rect x="{x}" y="{y0}" width="{tw}" height="{th}" rx="8" fill="{BG2 if not locked else BG1}" '
@@ -421,7 +421,7 @@ def products() -> None:
                      f'mask="url(#m{i})"/></g><mask id="m{i}"><rect width="0" height="12" fill="#fff" '
                      f'style="--w:{(tw - 32) * 0.55:.0f}px;animation:grow 5s ease-out infinite"/></mask></svg>')
         else:
-            label = "ONLINE" if state == "online" else "ON THE ROADMAP"
+            label = {"online": "ONLINE", "built": "BUILT · IN REVIEW"}.get(state, "ON THE ROADMAP")
             p.append(ptext(label, x + 16, by + 2, 1.6, col))
     p.append(svg_close(W, H))
     save("products.svg", "".join(p))
@@ -630,7 +630,7 @@ def achievements() -> None:
              ("Business Analytics Plus", "IMS Proschool", "UNLOCKED 2026 · OFFLINE", CYAN, False),
              ("Business Analytics Specialization", "Wharton Online, Univ. of Pennsylvania", "UNLOCKED · ONLINE",
               CYAN, False),
-             ("Forward Deployed Engineering", "NeuraPath Academy", "IN PROGRESS · OFFLINE", PINK, True)]
+             ("Forward Deployed Engineering", "NeuraPath Academy", "COMPLETED · OFFLINE", CYAN, False)]
     done = sum(not prog for *_, prog in items)
     p = [svg_open(W, H, ALT["achievements.svg"], css)]
     p.append(ptext("TROPHY ROOM", 48, 30, 2, AMBER) + ptext("EDUCATION & CERTIFICATIONS", 48, 52, 3.4, TEXT))
