@@ -5,6 +5,7 @@ The live scoreboard is built separately by scripts/scoreboard.py inside GitHub A
 
 from __future__ import annotations
 
+import hashlib
 import html
 import re
 import random
@@ -83,10 +84,25 @@ def fits(text: str, size: float, room: float, where: str) -> None:
 
 
 def check_readme() -> None:
-    """Every README image of a panel must carry that panel's label, word for word, as its alt text."""
-    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    """Every README image of a panel must carry that panel's label, word for word, as its alt text. Each image
+    address also carries ``?v=`` and the first 10 characters of the SHA-256 of the file, so a changed panel gets a
+    new address and no cache (GitHub's or a browser's) keeps showing the old picture."""
+    path = ROOT / "README.md"
+    readme = path.read_text(encoding="utf-8")
+
+    def stamp(m: re.Match[str]) -> str:
+        name = m.group(1)
+        f = ROOT / "assets" / name
+        if not f.exists():
+            return m.group(0)
+        return f'<img src="assets/{name}?v={hashlib.sha256(f.read_bytes()).hexdigest()[:10]}"'
+    stamped = re.sub(r'<img src="assets/([^"?]+)(?:\?v=[0-9a-f]*)?"', stamp, readme)
+    if stamped != readme:
+        with open(path, "w", encoding="utf-8", newline="") as out:
+            out.write(stamped)
+        readme = stamped
     seen, bad = set(), []
-    for src, alt in re.findall(r'<img src="assets/([^"]+)"[^>]*?alt="([^"]*)"', readme):
+    for src, alt in re.findall(r'<img src="assets/([^"?]+)(?:\?v=[0-9a-f]*)?"[^>]*?alt="([^"]*)"', readme):
         seen.add(src)
         if ALT.get(src) != html.unescape(alt):
             bad.append(src)
